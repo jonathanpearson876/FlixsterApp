@@ -1,5 +1,6 @@
 package com.jonathan.jonathanpearsonflixster
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,9 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+
 
 const val MOVIE_EXTRA = "MOVIE_EXTRA"
 class MovieAdapter(private val context: Context, private val movies:List<Movie>) :
@@ -48,6 +50,10 @@ class MovieAdapter(private val context: Context, private val movies:List<Movie>)
             //2. Use the intent system to navigate to the new screen
             val intent = Intent(context,DetailActivity::class.java)
             intent.putExtra(MOVIE_EXTRA,movie)
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                context as Activity,
+                (tvTitle as View?)!!, "text"
+            )
             context.startActivity(intent)
         }
     }

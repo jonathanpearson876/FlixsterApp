@@ -17,4 +17,9 @@
         <item name="colorControlNormal">@color/white</item>
         <item name="colorControlActivated">#FFD700</item>
     </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowContentTransitions">true</item>
+        ...
+    </style>
 </resources>
